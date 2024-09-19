@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { v2 as cloudinary } from "cloudinary";
 import connectDb from "./Config/db.js";
+import apiRoute from "./Routes/apiRoute.js";
 
 dotenv.config();
 connectDb();
@@ -27,6 +28,8 @@ cloudinary.config({
 app.get("/api/v1/", (req, res) => {
     res.status(200).json({ success: true, message: "HTTP Method Success!" });
 });
+
+app.use("/api/v1/app/", apiRoute);
 
 app.listen(PORT, () => {
     console.log(`Server started and running on http://localhost:${PORT}`);
