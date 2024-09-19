@@ -32,6 +32,11 @@ const AdminPage = () => {
         <section className="section">
             <h1 className="heading">Admin Dashboard:</h1>
             <div className="dashboard-container">
+                {isLoading && (
+                    <>
+                        <h1>Loading Contents</h1>
+                    </>
+                )}
                 {submissions.length === 0 ? (
                     <p>No submissions available</p>
                 ) : (
