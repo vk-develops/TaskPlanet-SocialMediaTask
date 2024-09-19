@@ -1,5 +1,9 @@
 import express from "express";
 import multer from "multer";
+import {
+    getUserDetails,
+    sendUserDetails,
+} from "../Controller/userNAdmincontroller.js";
 
 const router = express.Router();
 
@@ -9,7 +13,7 @@ const upload = multer({
     limits: { fileSize: 50 * 1024 * 1024 },
 });
 
-router.post("/social-task", upload.array("imageFiles", 10));
-router.get("/get-users");
+router.post("/user-details", upload.array("imageFiles", 10), sendUserDetails);
+router.get("/get-users", getUserDetails);
 
 export default router;
