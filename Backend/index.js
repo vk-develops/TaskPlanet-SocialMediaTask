@@ -18,7 +18,7 @@ app.use(
     cors({
         credentials: true,
         methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-        origin: process.env.APP_FRONTEND_LINK,
+        origin: process.env.APP_FRONTEND_LINK.trim().replace(/\/$/, ""),
     })
 );
 
