@@ -10,6 +10,9 @@ connectDb();
 const PORT = 8080;
 const app = express();
 
+const link = process.env.APP_FRONTEND_LINK;
+console.log(link);
+
 app.use(express.json());
 app.use(
     cors({
